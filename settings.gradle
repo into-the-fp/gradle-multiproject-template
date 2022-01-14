@@ -1,0 +1,12 @@
+rootProject.name = 'gradle-multiproject-template'
+
+// Required for multi-project
+include('core', 'bukkit', 'sponge')
+
+// Optional, append prefix on each name of child project
+def projectNamePrefix = rootProject.name
+rootProject.children.forEach { project ->
+    // Optionally, you can change the build file name by:
+    // project.buildFileName = "${project.name}.gradle"
+    project.name = "${projectNamePrefix}-${project.name}"
+}
